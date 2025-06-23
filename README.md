@@ -51,7 +51,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/artistly.git
+git clone https://github.com/RaviGauta1121/Artistly.git
 cd artistly
 npm install
 # or
