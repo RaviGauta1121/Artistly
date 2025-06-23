@@ -1,5 +1,5 @@
 import React from 'react';
-import { X } from 'lucide-react'; // Make sure lucide-react is installed
+import { X } from 'lucide-react'; 
 
 interface FormFieldProps {
   label: string;

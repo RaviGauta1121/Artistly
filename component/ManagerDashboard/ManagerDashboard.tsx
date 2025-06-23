@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
-import { StatCard } from '../StatCard/StatCard'; // Make sure this import is correct
-import { ArtistTableRow } from '../ArtisttableRow/ArtistTable'; // Ensure this is correct
-import { Users } from 'lucide-react'; // If you're using lucide icons
-
-interface Artist {
-  id: string;
-  name: string;
-  category: string[];
-  location: string;
-  fee?: string;
-  priceRange?: string;
-  languages?: string[];
-  [key: string]: any;
-}
+import { StatCard } from '../StatCard/StatCard'; 
+import { ArtistTableRow } from '../ArtisttableRow/ArtistTable'; 
+import { Users } from 'lucide-react'; 
+import { Artist } from '@/types/artistTypes';
 
 interface ManagerDashboardProps {
   artists: Artist[];

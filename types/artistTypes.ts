@@ -1,12 +1,12 @@
 export interface Artist {
   id: string;
   name: string;
-  bio: string;
   category: string[];
   languages: string[];
   fee: string;
   location: string;
   image: string;
+  bio: string;
   rating?: number;
   availability?: string;
   priceRange?: string;

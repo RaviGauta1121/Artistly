@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, User, MapPin, DollarSign, Globe, Star, Sparkles } from 'lucide-react';
 
-// Define the type if it's not already in a shared types file
+
 export interface ArtistFormData {
   name: string;
   bio: string;
