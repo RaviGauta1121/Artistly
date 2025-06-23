@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Search, MapPin, Users, Grid3X3, List, X, Filter } from "lucide-react";
-import { Artist } from "@/app/page"; // Adjust path as needed
+import { Artist } from '@/types/artistTypes'; 
 
 interface ArtistCardProps {
   artist: Artist;
