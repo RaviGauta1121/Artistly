@@ -8,7 +8,7 @@ import ArtistListingPage from '@/component/ArtistListingPage/ArtistListingPage';
 import HomePage from '@/component/HomePage/HomePage';
 import Navigation from '@/component/Navigation/Navigation';
 import { mockArtists, categories } from '../data/dummyData';
-import { Artist } from '@/types/artistTypes'; 
+import { Artist } from '@/types/artistTypes';
 
 const ArtistlyApp: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -35,9 +35,9 @@ const ArtistlyApp: React.FC = () => {
       ...artistData,
       id: (onboardedArtists.length + 100).toString(),
       rating: 0,
-      priceRange: artistData.fee,
+      priceRange: artistData.fee
     };
-    setOnboardedArtists((prev) => [...prev, newArtist]);
+    setOnboardedArtists(prev => [...prev, newArtist]);
     setCurrentPage('dashboard');
   };
 
