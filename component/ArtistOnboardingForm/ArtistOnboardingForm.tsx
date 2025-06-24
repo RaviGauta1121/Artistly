@@ -9,6 +9,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+// Define the type if it's not already in a shared types file
 export interface ArtistFormData {
   name: string;
   bio: string;
@@ -195,7 +196,7 @@ const ArtistOnboardingForm: React.FC<{
                         onChange={(e) =>
                           handleInputChange("name", e.target.value)
                         }
-                        className={` text-blue-300 w-full px-4 py-4 border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 ${
+                        className={`w-full text-blue-300 px-4 py-4 border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 ${
                           errors.name
                             ? "border-red-300 focus:border-red-500"
                             : "border-gray-200 hover:border-gray-300"
@@ -213,7 +214,7 @@ const ArtistOnboardingForm: React.FC<{
                           handleInputChange("bio", e.target.value)
                         }
                         rows={5}
-                        className={`text-blue-300 w-full px-4 py-4  border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 resize-none ${
+                        className={`w-full text-blue-300 px-4 py-4  border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 resize-none ${
                           errors.bio
                             ? "border-red-300 focus:border-red-500"
                             : "border-gray-200 hover:border-gray-300"
@@ -304,7 +305,7 @@ const ArtistOnboardingForm: React.FC<{
                               onChange={() =>
                                 handleMultiSelect("category", category)
                               }
-                              className=" text-blue-300 absolute top-3 right-3 w-5 h-5 text-purple-600 border-2 border-gray-300 rounded-md focus:ring-purple-500"
+                              className="absolute top-3 right-3 w-5 h-5 text-purple-600 border-2 border-gray-300 rounded-md focus:ring-purple-500"
                             />
                             <span
                               className={`text-sm font-medium ${
@@ -348,7 +349,7 @@ const ArtistOnboardingForm: React.FC<{
                               onChange={() =>
                                 handleMultiSelect("languages", language)
                               }
-                              className="text-blue-300 absolute top-3 right-3 w-5 h-5 text-indigo-600 border-2 border-gray-300 rounded-md focus:ring-indigo-500"
+                              className="absolute top-3 right-3 w-5 h-5 text-indigo-600 border-2 border-gray-300 rounded-md focus:ring-indigo-500"
                             />
                             <div className="flex items-center gap-2">
                               <Globe className="w-4 h-4 text-gray-400" />
@@ -376,7 +377,7 @@ const ArtistOnboardingForm: React.FC<{
                         onChange={(e) =>
                           handleInputChange("fee", e.target.value)
                         }
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 ${
+                        className={`text-blue-300 w-full pl-12 pr-4 py-4 border-2 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 ${
                           errors.fee
                             ? "border-red-300 focus:border-red-500"
                             : "border-gray-200 hover:border-gray-300"
@@ -400,7 +401,7 @@ const ArtistOnboardingForm: React.FC<{
                             <img
                               src={formData.image}
                               alt="Preview"
-                              className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+                              className=" w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
                             />
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/20 to-indigo-600/20"></div>
                           </div>
@@ -417,10 +418,10 @@ const ArtistOnboardingForm: React.FC<{
                           onChange={(e) =>
                             handleInputChange("image", e.target.value)
                           }
-                          className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 hover:border-gray-300"
+                          className="text-blue-300 w-full px-4 py-4 border-2 border-gray-200 rounded-2xl bg-gray-50/50 focus:bg-white transition-all duration-200 focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 hover:border-gray-300"
                           placeholder="Enter image URL (or leave blank for default)"
                         />
-                        <p className="text-blue-300 text-sm  mt-2 flex items-center gap-2">
+                        <p className="t text-sm text-gray-500 mt-2 flex items-center gap-2">
                           <Upload className="w-4 h-4" />
                           Paste an image URL or leave blank for a default avatar
                         </p>

@@ -10,6 +10,9 @@ export interface Artist {
   rating?: number;
   availability?: string;
   priceRange?: string;
+  status?: 'active' | 'pending' | 'inactive';
+  avatar?: string;
+ 
 }
 
 export interface FilterProps {

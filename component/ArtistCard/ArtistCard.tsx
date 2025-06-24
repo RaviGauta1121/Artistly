@@ -1,15 +1,7 @@
 import React from 'react';
 import { MapPin, Star, DollarSign } from 'lucide-react';
 
-interface Artist {
-  name: string;
-  image: string;
-  category: string[];
-  location: string;
-  rating: number;
-  fee?: string;
-  priceRange?: string;
-}
+import { Artist } from '@/types/artistTypes';
 
 interface ArtistCardProps {
   artist: Artist;
