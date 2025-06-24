@@ -13,7 +13,7 @@ const FilterSelect: React.FC<FilterProps> = ({ value, onChange, options, placeho
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white"
+      className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-amber-500"
     >
       <option value="">{placeholder}</option>
       {options.map(option => (

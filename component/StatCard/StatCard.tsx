@@ -1,11 +1,10 @@
-// StatCard.tsx
 import React from 'react';
 
 interface StatCardProps {
   title: string;
   value: string | number;
   icon: React.ReactNode;
-  color: string;
+  color: string; // e.g., "bg-purple-100 text-purple-600"
 }
 
 export const StatCard: React.FC<StatCardProps> = ({ title, value, icon, color }) => {
