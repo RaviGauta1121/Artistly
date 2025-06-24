@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { StatCard } from '../StatCard/StatCard'; 
-import { ArtistTableRow } from '../ArtisttableRow/ArtistTable'; 
-import { Users } from 'lucide-react'; 
-import { Artist } from '@/types/artistTypes';
+import React, { useState } from "react";
+import { StatCard } from "../StatCard/StatCard";
+import { ArtistTableRow } from "../ArtisttableRow/ArtistTable";
+import { Users } from "lucide-react";
+import { Artist } from "@/types/artistTypes";
 
 interface ManagerDashboardProps {
   artists: Artist[];
@@ -13,39 +13,43 @@ interface SortButtonProps {
   children: React.ReactNode;
 }
 
-export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) => {
-  const [sortField, setSortField] = useState<keyof Artist>('name');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
+  artists,
+}) => {
+  const [sortField, setSortField] = useState<keyof Artist>("name");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [selectedArtists, setSelectedArtists] = useState<string[]>([]);
 
   const sortedArtists = [...artists].sort((a, b) => {
-    const aValue = a[sortField]?.toString().toLowerCase() || '';
-    const bValue = b[sortField]?.toString().toLowerCase() || '';
+    const aValue = a[sortField]?.toString().toLowerCase() || "";
+    const bValue = b[sortField]?.toString().toLowerCase() || "";
 
-    return sortDirection === 'asc'
+    return sortDirection === "asc"
       ? aValue.localeCompare(bValue)
       : bValue.localeCompare(aValue);
   });
 
   const handleSort = (field: keyof Artist) => {
     if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortField(field);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   };
 
   const handleSelectAll = () => {
     setSelectedArtists(
-      selectedArtists.length === artists.length ? [] : artists.map(artist => artist.id)
+      selectedArtists.length === artists.length
+        ? []
+        : artists.map((artist) => artist.id)
     );
   };
 
   const handleSelectArtist = (artistId: string) => {
-    setSelectedArtists(prev =>
+    setSelectedArtists((prev) =>
       prev.includes(artistId)
-        ? prev.filter(id => id !== artistId)
+        ? prev.filter((id) => id !== artistId)
         : [...prev, artistId]
     );
   };
@@ -54,12 +58,12 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
     <button
       onClick={() => handleSort(field)}
       className={`flex items-center gap-1 hover:text-purple-600 ${
-        sortField === field ? 'text-purple-600' : 'text-gray-700'
+        sortField === field ? "text-purple-600" : "text-gray-700"
       }`}
     >
       {children}
       {sortField === field && (
-        <span className="text-xs">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+        <span className="text-xs">{sortDirection === "asc" ? "↑" : "↓"}</span>
       )}
     </button>
   );
@@ -68,8 +72,12 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Manager Dashboard</h1>
-        <p className="text-gray-600">Manage your artist submissions and bookings</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          Manager Dashboard
+        </h1>
+        <p className="text-gray-600">
+          Manage your artist submissions and bookings
+        </p>
       </div>
 
       {/* Stats Cards */}
@@ -104,7 +112,9 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
       <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Artist Submissions</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Artist Submissions
+            </h2>
             {selectedArtists.length > 0 && (
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-600">
@@ -123,7 +133,9 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
             <div className="text-gray-400 mb-4">
               <Users size={48} className="mx-auto" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No artists yet</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              No artists yet
+            </h3>
             <p className="text-gray-600">
               Artist submissions will appear here once they complete onboarding
             </p>
@@ -136,7 +148,10 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
                   <th className="px-6 py-3 text-left">
                     <input
                       type="checkbox"
-                      checked={selectedArtists.length === artists.length && artists.length > 0}
+                      checked={
+                        selectedArtists.length === artists.length &&
+                        artists.length > 0
+                      }
                       onChange={handleSelectAll}
                       className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                     />
@@ -162,7 +177,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ artists }) =
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {sortedArtists.map(artist => (
+                {sortedArtists.map((artist) => (
                   <ArtistTableRow
                     key={artist.id}
                     artist={artist}

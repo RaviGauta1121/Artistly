@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface StatCardProps {
   title: string;
@@ -7,7 +7,12 @@ interface StatCardProps {
   color: string; // e.g., "bg-purple-100 text-purple-600"
 }
 
-export const StatCard: React.FC<StatCardProps> = ({ title, value, icon, color }) => {
+export const StatCard: React.FC<StatCardProps> = ({
+  title,
+  value,
+  icon,
+  color,
+}) => {
   return (
     <div className="bg-white rounded-lg shadow-sm border p-6">
       <div className="flex items-center justify-between">

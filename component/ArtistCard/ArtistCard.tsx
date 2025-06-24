@@ -1,15 +1,15 @@
-import React from 'react';
-import { MapPin, Star, DollarSign } from 'lucide-react';
+import React from "react";
+import { MapPin, Star, DollarSign } from "lucide-react";
 
-import { Artist } from '@/types/artistTypes';
+import { Artist } from "@/types/artistTypes";
 
 interface ArtistCardProps {
   artist: Artist;
-  viewMode: 'list' | 'grid';
+  viewMode: "list" | "grid";
 }
 
 const ArtistCard: React.FC<ArtistCardProps> = ({ artist, viewMode }) => {
-  if (viewMode === 'list') {
+  if (viewMode === "list") {
     return (
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
         <div className="flex items-center gap-4">
@@ -18,20 +18,22 @@ const ArtistCard: React.FC<ArtistCardProps> = ({ artist, viewMode }) => {
             alt={artist.name}
             className="w-16 h-16 rounded-full object-cover"
           />
-          
+
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
-                <h3 className="font-semibold text-gray-900 text-lg">{artist.name}</h3>
+                <h3 className="font-semibold text-gray-900 text-lg">
+                  {artist.name}
+                </h3>
                 <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
-                  <span>{artist.category.join(', ')}</span>
+                  <span>{artist.category.join(", ")}</span>
                 </div>
                 <div className="flex items-center gap-1 text-sm text-gray-600">
                   <MapPin size={14} className="text-gray-500" />
                   {artist.location}
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="text-right">
                   <div className="flex items-center gap-1 text-sm mb-1">
@@ -60,7 +62,7 @@ const ArtistCard: React.FC<ArtistCardProps> = ({ artist, viewMode }) => {
         alt={artist.name}
         className="w-full h-48 object-cover"
       />
-      
+
       <div className="p-4">
         <div className="flex items-start justify-between mb-3">
           <h3 className="font-semibold text-gray-900 text-lg">{artist.name}</h3>
@@ -72,8 +74,11 @@ const ArtistCard: React.FC<ArtistCardProps> = ({ artist, viewMode }) => {
 
         <div className="space-y-3 mb-4">
           <div className="flex flex-wrap gap-1">
-            {artist.category.map(cat => (
-              <span key={cat} className="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded font-medium">
+            {artist.category.map((cat) => (
+              <span
+                key={cat}
+                className="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded font-medium"
+              >
                 {cat}
               </span>
             ))}

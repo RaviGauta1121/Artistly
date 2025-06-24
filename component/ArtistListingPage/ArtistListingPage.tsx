@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Search, MapPin, Users, Grid3X3, List, X, Filter, ChevronDown } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Users,
+  Grid3X3,
+  List,
+  X,
+  Filter,
+  ChevronDown,
+} from "lucide-react";
 import { Artist } from "@/types/artistTypes";
 
 interface ArtistCardProps {
@@ -110,7 +119,7 @@ interface FilterSelectProps {
   onChange: (value: string) => void;
   options: string[];
   placeholder: string;
-  type: 'category' | 'priceRange';
+  type: "category" | "priceRange";
 }
 
 const FilterSelect: React.FC<FilterSelectProps> = ({
@@ -124,41 +133,41 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
 
   const getGradientClass = () => {
     switch (type) {
-      case 'category':
-        return 'from-purple-500 to-pink-500';
-      case 'priceRange':
-        return 'from-emerald-500 to-teal-500';
+      case "category":
+        return "from-purple-500 to-pink-500";
+      case "priceRange":
+        return "from-emerald-500 to-teal-500";
       default:
-        return 'from-indigo-500 to-purple-500';
+        return "from-indigo-500 to-purple-500";
     }
   };
 
   const getHoverClass = () => {
     switch (type) {
-      case 'category':
-        return 'hover:from-purple-600 hover:to-pink-600';
-      case 'priceRange':
-        return 'hover:from-emerald-600 hover:to-teal-600';
+      case "category":
+        return "hover:from-purple-600 hover:to-pink-600";
+      case "priceRange":
+        return "hover:from-emerald-600 hover:to-teal-600";
       default:
-        return 'hover:from-indigo-600 hover:to-purple-600';
+        return "hover:from-indigo-600 hover:to-purple-600";
     }
   };
 
   const getOptionHoverClass = (index: number) => {
     const colors = {
       category: [
-        'hover:bg-purple-50 hover:text-purple-700',
-        'hover:bg-pink-50 hover:text-pink-700',
-        'hover:bg-violet-50 hover:text-violet-700',
-        'hover:bg-fuchsia-50 hover:text-fuchsia-700',
-        'hover:bg-rose-50 hover:text-rose-700',
+        "hover:bg-purple-50 hover:text-purple-700",
+        "hover:bg-pink-50 hover:text-pink-700",
+        "hover:bg-violet-50 hover:text-violet-700",
+        "hover:bg-fuchsia-50 hover:text-fuchsia-700",
+        "hover:bg-rose-50 hover:text-rose-700",
       ],
       priceRange: [
-        'hover:bg-emerald-50 hover:text-emerald-700',
-        'hover:bg-teal-50 hover:text-teal-700',
-        'hover:bg-green-50 hover:text-green-700',
-        'hover:bg-cyan-50 hover:text-cyan-700',
-        'hover:bg-blue-50 hover:text-blue-700',
+        "hover:bg-emerald-50 hover:text-emerald-700",
+        "hover:bg-teal-50 hover:text-teal-700",
+        "hover:bg-green-50 hover:text-green-700",
+        "hover:bg-cyan-50 hover:text-cyan-700",
+        "hover:bg-blue-50 hover:text-blue-700",
       ],
     };
     return colors[type][index % colors[type].length];
@@ -169,35 +178,35 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full px-4 py-3 rounded-xl text-left font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
-          value 
-            ? `bg-gradient-to-r ${getGradientClass()} ${getHoverClass()} text-white` 
+          value
+            ? `bg-gradient-to-r ${getGradientClass()} ${getHoverClass()} text-white`
             : `bg-white border-2 border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50`
         }`}
       >
         <div className="flex items-center justify-between">
-          <span className={value ? 'text-white' : 'text-gray-600'}>
+          <span className={value ? "text-white" : "text-gray-600"}>
             {value || placeholder}
           </span>
-          <ChevronDown 
-            size={20} 
+          <ChevronDown
+            size={20}
             className={`transition-transform duration-200 ${
-              isOpen ? 'transform rotate-180' : ''
-            } ${value ? 'text-white' : 'text-gray-400'}`}
+              isOpen ? "transform rotate-180" : ""
+            } ${value ? "text-white" : "text-gray-400"}`}
           />
         </div>
       </button>
 
       {isOpen && (
         <>
-          <div 
-            className="fixed inset-0 z-40" 
+          <div
+            className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
           <div className="absolute top-full left-0 right-0 z-50 mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
             <div className="max-h-60 overflow-y-auto">
               <button
                 onClick={() => {
-                  onChange('');
+                  onChange("");
                   setIsOpen(false);
                 }}
                 className="w-full px-4 py-3 text-left text-gray-500 hover:bg-gray-50 transition-colors border-b border-gray-100"
@@ -211,10 +220,12 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
                     onChange(option);
                     setIsOpen(false);
                   }}
-                  className={`w-full px-4 py-3 text-left font-medium transition-all duration-200 ${getOptionHoverClass(index)} ${
-                    value === option 
-                      ? `bg-gradient-to-r ${getGradientClass()} text-white` 
-                      : 'text-gray-700'
+                  className={`w-full px-4 py-3 text-left font-medium transition-all duration-200 ${getOptionHoverClass(
+                    index
+                  )} ${
+                    value === option
+                      ? `bg-gradient-to-r ${getGradientClass()} text-white`
+                      : "text-gray-700"
                   }`}
                 >
                   <div className="flex items-center justify-between">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface FilterProps {
   value: string;
@@ -8,7 +8,12 @@ interface FilterProps {
 }
 
 // Filter Select Component
-const FilterSelect: React.FC<FilterProps> = ({ value, onChange, options, placeholder }) => {
+const FilterSelect: React.FC<FilterProps> = ({
+  value,
+  onChange,
+  options,
+  placeholder,
+}) => {
   return (
     <select
       value={value}
@@ -16,7 +21,7 @@ const FilterSelect: React.FC<FilterProps> = ({ value, onChange, options, placeho
       className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white"
     >
       <option value="">{placeholder}</option>
-      {options.map(option => (
+      {options.map((option) => (
         <option key={option} value={option}>
           {option}
         </option>
